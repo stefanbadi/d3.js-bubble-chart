@@ -80,7 +80,7 @@ svg
   .attr('transform', 'translate( ' + padding + ')', 0)
   .call(y_axis);
 
-// Create Cißcles
+// Create Circles
 svg
   .selectAll('circle')
   .data(data)
