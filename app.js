@@ -64,15 +64,23 @@ var a_scale = d3
   ])
   .range([0, 25]);
 
-//Create Axis by adding it to the svg and using a group element
-var x_axis = d3.axisBottom(x_scale);
+//Create X Axis by adding it to the svg and using a group element
+var x_axis = d3.axisBottom(x_scale).ticks(8);
 svg
   .append('g')
   .attr('class', 'x-axis')
   .attr('transform', 'translate(0, ' + (chart_height - padding) + ')')
   .call(x_axis);
 
-// Create Circles
+//Create Y Axis by adding it to the svg and using a group element
+var y_axis = d3.axisLeft(y_scale).ticks(6);
+svg
+  .append('g')
+  .attr('class', 'y-axis')
+  .attr('transform', 'translate( ' + padding + ')', 0)
+  .call(y_axis);
+
+// Create Cißcles
 svg
   .selectAll('circle')
   .data(data)
@@ -87,7 +95,7 @@ svg
   .attr('r', function(d) {
     return a_scale(d[1]);
   })
-  .attr('fill', '#D1AB0E');
+  .attr('fill', '#39CCCC');
 
 // Create Labels
 svg
